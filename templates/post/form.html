@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-md-6 " >
+                     <form method="POST" enctype="multipart/form-data">
+                             <h1>  Form </h1>
+
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label >BAŞLIK:</label>
+                                    <input type="text" class="form-control" name="baslik" >
+                                </div>
+                            <div class="form-group"|>
+                        <label for="exampleFormControlTextarea1">İÇERİK:</label>
+                                <label for="editor"></label><textarea class="form-control" name='metin' rows="8"></textarea>
+                            </div>
+                             <div class="form-group">
+                                 <label>DOSYA SEÇ :</label>
+                            <input type="file" name='image'>
+                        </div>
+
+                           {{ form.captcha }}
+
+                         <input type="submit" class="btn btn-primary" value="Gönder" data-toggle="modal" data-target="#staticBackdrop" >
+                     </form>
+             </div>
+</div></div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-2" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"></h5>
+
+      </div>
+      <div class="modal-body">
+        KAYDEDİLDİ
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

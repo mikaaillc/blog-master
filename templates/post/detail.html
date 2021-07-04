@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="container">
+
+     <div class="row justify-content-center" style="margin-bottom:10px">
+        <div class="col-md-6 " >
+            <div class="shadow p-1">
+            <div class="card text-center " style="background-color: #7abaff" >
+
+                    <span class="border border-danger ">
+                        <div class="card-header">
+                        <small>{{ post.yayin }}</small>
+                            <div class="container">
+                            <div class="row justify-content-center" style="margin-bottom:5px">
+                                       <div class="col-md-12 " >
+                                         {% if post.image%}
+                                        <img src="{{ post.image.url }}" class="card-img-top"  alt="...">
+                                            {% endif %}
+                                             </div>
+                                    </div>
+                                    </div>
+
+                            <h4>Yazan:{{ post.user.get_full_name }}</h4>
+                                       <div class="card-body">
+                        <h5 class="card-title text-danger" style="font-weight:bold" >{{ post.baslik }}</h5>
+                                        <p class="card-text">{{ post.metin|safe|linebreaks|truncatechars:50 }}</p>
+
+                                       <div class="container">
+                                <div class="row justify-content-center" style="margin-bottom:5px">
+                                        <div class="col-md-7 " >
+                            {% if request.user.is_authenticated %}
+                                    {% if  user.get_username == post.user.get_username %}
+                                <a href="{{ post.guncel }}" class="btn btn-success" role="button">Güncelle</a>
+                                <a href="{{ post.sil }}" class="btn btn-danger" role="button">Sil</a>
+                                    {% endif %}
+                            {% endif %}
+                                 </div></span>
+                                    </div>
+                                </div>
+                    </div>
+    </div>      </div>
+
+
+</div>
+    </div></div>
+
+
+    {% include 'post/comment.html' %}
+
+
+
+<div class="row justify-content-center" style="margin-bottom:5px">
+<h5>YORUMLAR</h5>
+</div>
+    {% for comment in post.comments.all %}
+  <div class="container">
+
+        <div class="row justify-content-center" style="margin-bottom:5px">
+            <div class="col-md-12" >
+            <div class="card text-center " style="background-color: #ff9785; margin: 5px" >
+                   <div class="card-header">
+                <h5>{{ comment.name }}</h5>  <small>{{ comment.creat_date|timesince }} önce </small>
+                    <p>{{ comment.yorum|linebreaks }}</p>
+                </div>
+</div></div></div></div>
+
+    {% endfor %}
+
+
+
+
+
+
+
+{% endblock %}

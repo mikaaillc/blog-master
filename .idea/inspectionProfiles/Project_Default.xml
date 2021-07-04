@@ -1,0 +1,42 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="yazar:" />
+            <item index="1" class="java.lang.String" itemvalue="yazan:" />
+            <item index="2" class="java.lang.String" itemvalue="referrerpolicy" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="triangle" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStubPackagesCompatibilityInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredStubPackages">
+        <list>
+          <option value="PyQt5-stubs" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+  </profile>
+</component>

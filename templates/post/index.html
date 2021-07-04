@@ -1,0 +1,83 @@
+{% include 'base.html' %}
+
+{% block body %}
+
+
+{#  "/post/{{ post.id }}"#}
+{# {% url 'detail' ID=post.id %} #}
+<body>
+
+<div class="container">
+
+    <div class="row justify-content-center" style="margin-top:5px;margin-bottom:5px">
+
+    <div class="shadow p-1 ">
+            {% if request.user.is_authenticated %}
+
+            <a href ="{% url 'post:create' %}" class="btn btn-dark  ">OLUŞTUR</a>
+            {% endif %}
+       </div>
+  </div>
+</div>
+{% for post in posts %}
+
+    <div class="container">
+
+     <div class="row justify-content-center" style="margin-bottom:10px">
+        <div class="col-md-6 " >
+            <div class="shadow p-1 ">
+            <div class="card text-center " style="background-color: #7abaff" >
+                    <span class="border border-danger ">
+                        <div class="card-header">
+                            <div class="container">
+                            <div class="row justify-content-center" style="margin-bottom:5px">
+                                       <div class="col-md-6 " >
+                                         {% if post.image%}
+                                        <img src="{{ post.image.url }}" class="card-img-top"  alt="...">
+                                            {% endif %}
+                                             </div>
+                                    </div>
+                                    </div>
+                            <small>{{ post.yayin }}</small>
+                            <h6>Yazan:{{ post.user.get_full_name }}</h6>
+                    <div class="card-body">
+                        <h5 class="card-title text-danger" style="font-weight:bold" >{{ post.baslik }}</h5>
+
+                        <p class="card-text">{{ post.metin|safe|linebreaks|truncatechars:50 }}</p>
+                            <div class="container">
+                                <div class="row justify-content-center" style="margin-bottom:5px">
+                                        <div class="col-md-7 " >
+                            <a href="{{ post.get_absolute_url }}" class="btn btn-warning btn-lg">İNCELE</a>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                   </div>  </span>
+                </div>
+       </div> </div>
+     </div>
+
+    </div>
+
+    {% endfor %}
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+
+            <li class="page-item ">
+
+        {% if posts.has_previous %}
+        <a class="page-link" href="?page={{ posts.previous_page_number }}{% if request.GET.get.q %} }}&q={{ request.GET.get.q }}{% endif %}" >ÖNCEKİ</a>
+        {% endif %}
+    </li>
+    <li class="page-item"><a class="page-link">{{ posts.number }}</a></li>
+
+    <li class="page-item">
+        {% if posts.has_next %}
+      <a class="page-link" href="?page={{ posts.next_page_number }}{% if request.GET.get.q %} }}&q={{ request.GET.get.q}}{% endif %}">SONRAKİ</a>
+        {% endif %}
+    </li>
+
+
+  </ul>
+</nav>
+{% endblock body %}

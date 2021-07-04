@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+                     <form method="POST" enctype="multipart/form-data">
+
+
+                         <h1> {{ baslik }} </h1>
+                            {% csrf_token %}
+<div class="form-group">
+    <label >İSİM:</label>
+    <input type="text" class="form-control" name="first_name" >
+  </div>
+
+       <div class="form-group">
+    <label >SOYİSİM:</label>
+    <input type="text" class="form-control" name="last_name" >
+  </div>
+
+
+                         <div class="form-group">
+    <label >KULLANICI ADI:</label>
+    <input type="text" class="form-control" name="username" >
+  </div>
+  <div class="form-group">
+    <label >PAROLA </label>
+    <input type="password" class="form-control" name="password1">
+  </div>
+                          <div class="form-group">
+    <label >PAROLA DOĞRULAMA</label>
+    <input type="password" class="form-control" name="password2">
+  </div>
+                    <input type="submit" class="btn btn-primary" value="{{ baslik }}" >
+                     </form>
+             </div>
+</div>
+    </div>
+{% endblock body %}
+
+
+
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block body %}#}
+{##}
+{#    <div class="container">#}
+{##}
+{#        <div class="row justify-content-center">#}
+{##}
+{#                     <form method="POST" enctype="multipart/form-data">#}
+{#                             <h1> {{ baslik }} </h1>#}
+{#                            {% csrf_token %}#}
+{#                            {{ form.as_p}}#}
+{##}
+{#                    <input type="submit" class="btn btn-primary" value="{{ baslik }}" >#}
+{#                     </form>#}
+{#             </div>#}
+{#</div>#}
+{#    </div>#}
+{#{% endblock body %}#}

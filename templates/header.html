@@ -1,0 +1,109 @@
+{% load static %}
+
+<nav class="navbar fixed-top navbar-expand-md  navbar-dark bg-dark">
+
+    <img src={% static "mainicon2.png" %} width="80" height="40" href ="{% url 'home' %}" >
+
+    <a class="navbar-brand text-danger" href ="{% url 'home' %}">€NGİNEER//</a>
+
+
+  <button class="navbar-toggler bg-success " type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar text-danger"> MENÜ </span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link " href ="{% url 'home' %}">ANASAYFA <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href ="{% url 'post:index' %}">BLOG</a>
+      </li>
+
+        <li class="nav-item ">
+        <a class="nav-link" href ="{% url 'info' %}">HAKKIMDA</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="#">İLETİŞİM</a>
+       <li class="nav-item  ">
+
+
+
+    </li>
+    {% if request.user.is_authenticated %}
+            <div class="nav-item " >
+                <ul class="navbar-nav mr-auto">
+                         <div class="container" >
+                        <div class="col-xs-6" style="margin-bottom:5px ">
+                        {% if request.user.is_authenticated %}
+                         <a href=" " class="btn btn-success " aria-pressed="true">{{ user.get_username }} </a>
+                        {% endif %}
+
+                </ul>
+            </div>
+
+
+        <div class="nav-item " >
+                <ul class="navbar-nav mr-auto">
+                        <div class="container" >
+                        <div class="col-xs-6" style="margin-bottom:5px ">
+                        {% if request.user.is_authenticated %}
+                         <a href="{% url 'kullanici:logout' %}" class="btn btn-danger " aria-pressed="true">ÇIKIŞ YAP </a>
+                        {% endif %}
+                         </div>
+                </ul>
+            </div>
+            {% else %}
+        <li class="nav-item ">
+                    <ul class="navbar-nav mr-auto">
+                        <div class="container" >
+                        <div class="col-xs-6" style="margin-bottom:5px ">
+                         <a href="{% url 'kullanici:login' %}" class="btn btn-success " aria-pressed="true">GİRİŞ YAP </a>
+                         </div>
+                    </ul>
+        </li>
+        <li class="nav-item ">
+               <ul class="navbar-nav mr-auto">
+                        <div class="container" >
+                        <div class="col-xs-6" style="margin-bottom:5px ">
+                         <a href="{% url 'kullanici:register' %}" class="btn btn-primary " aria-pressed="true">ÜYE OL </a>
+                         </div>
+                  </div>  </ul>
+            </li>
+            {% endif %}
+
+        <div class="nav-item " >
+                <ul class="navbar-nav mr-auto">
+                    <div class="container" >
+                        <div class="col-xs-6" style="margin-bottom:5px ">
+                        {% if request.user.is_authenticated %}
+                         <a href ="{% url 'post:create' %}" class="btn btn-primary " aria-pressed="true">YAZI EKLE </a>
+                        {% endif %}
+                        </div>
+                </div>
+                </ul>
+            </div>
+    </ul> <form class="nav-item  navbar-left"  role="search"  method="GET" action="{% url "post:index" %}" >
+
+      <div class="input-group">
+                    <input class="form" type="text" name="q"  placeholder="Search on blog" value="{{ request.GET.q }}" >
+                    <span class="input-group-btn">
+                        <input class="btn  btn-outline-warning" type="submit" value="Ara">
+                    </span>
+                </div>
+            </form></div>
+
+
+
+
+
+
+</div>
+
+          </div>
+            </ul>
+
+
+
+
+  </div> </div>
+</nav>

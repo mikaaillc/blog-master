@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+                     <form method="POST" enctype="multipart/form-data">
+
+
+                         <h1> {{ baslik }} </h1>
+                            {% csrf_token %}
+
+  <div class="form-group">
+    <label >KULLANICI ADI:</label>
+    <input type="text" class="form-control" name="username" >
+  </div>
+  <div class="form-group">
+    <label >ŞİFRE </label>
+    <input type="password" class="form-control" name="password">
+  </div>
+                    <input type="submit" class="btn btn-primary" value="{{ baslik }}" >
+                     </form>
+             </div>
+</div>
+    </div>
+{% endblock body %}
+
+
+
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block body %}#}
+{##}
+{#    <div class="container">#}
+{##}
+{#        <div class="row justify-content-center">#}
+{##}
+{#                     <form method="POST" enctype="multipart/form-data">#}
+{#                             <h1> {{ baslik }} </h1>#}
+{#                            {% csrf_token %}#}
+{#                            {{ form.as_p}}#}
+{##}
+{#                    <input type="submit" class="btn btn-primary" value="{{ baslik }}" >#}
+{#                     </form>#}
+{#             </div>#}
+{#</div>#}
+{#    </div>#}
+{#{% endblock body %}#}
